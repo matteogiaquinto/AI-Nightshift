@@ -1,0 +1,17 @@
+{
+  "name": "ai-night-shift",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Structured task orchestration and safety workflow for cloud AI coding agents.",
+  "scripts": {
+    "test": "node --test scripts/validate-tasks.test.mjs",
+    "validate:tasks": "node scripts/validate-tasks.mjs",
+    "validate:repo": "node scripts/validate-repository.mjs",
+    "validate": "npm test && npm run validate:tasks && npm run validate:repo"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,57 @@
+name: Analysis-only task
+description: Ask an AI agent for a plan, review, or investigation without code changes.
+title: "[Analysis] "
+labels: ["ready-for-agent", "no-autocode"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this when the output should be a plan, review, questions, or risk assessment only. The agent must not modify files, create branches, or open implementation PRs.
+
+  - type: input
+    id: target_repo
+    attributes:
+      label: Target repository
+      placeholder: OWNER/example-project
+    validations:
+      required: true
+
+  - type: input
+    id: area
+    attributes:
+      label: Area to inspect
+      placeholder: src/components, docs, GitHub issues, dashboard widgets, etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Question or review goal
+      placeholder: What should the agent understand, compare, or decide?
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints
+      value: |
+        - Do not modify files.
+        - Do not create branches.
+        - Do not open implementation PRs.
+        - Return a concise plan or review only.
+    validations:
+      required: true
+
+  - type: textarea
+    id: output
+    attributes:
+      label: Expected output format
+      value: |
+        1. Findings
+        2. Recommendation
+        3. Risks
+        4. Next small tasks
+    validations:
+      required: true

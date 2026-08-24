@@ -1,0 +1,81 @@
+name: AI coding task
+description: Small implementation task that an AI agent may turn into a reviewable PR.
+title: "[Task] "
+labels: ["ready-for-agent", "small", "safe-change", "risk-low"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for small, clear, low-risk coding tasks only. The agent may create a branch and a pull request, but must not merge.
+
+  - type: input
+    id: target_repo
+    attributes:
+      label: Target repository
+      description: Repository where the agent should work.
+      placeholder: OWNER/example-project
+    validations:
+      required: true
+
+  - type: input
+    id: target_branch
+    attributes:
+      label: Target branch
+      placeholder: main
+    validations:
+      required: true
+
+  - type: input
+    id: affected_area
+    attributes:
+      label: Affected area or likely files
+      description: Files, folders, components, or pages the agent should inspect first.
+      placeholder: src/styles.css
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is wrong now?
+      placeholder: Explain the current behavior or missing piece.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_result
+    attributes:
+      label: Expected result
+      description: What should be true when the task is completed?
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints
+      description: What must not change?
+      value: |
+        - Do not redesign unrelated UI.
+        - Do not refactor unrelated code.
+        - Keep the change limited to this task.
+    validations:
+      required: true
+
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation steps
+      description: How should the agent check the result?
+      placeholder: Run relevant tests, inspect viewport widths, verify no console error, etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra_context
+    attributes:
+      label: Extra context
+      description: Links, screenshots, references, or implementation hints.
+    validations:
+      required: false
