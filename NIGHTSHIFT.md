@@ -5,7 +5,7 @@ Use this file as the base instruction for a scheduled cloud AI coding agent.
 ## Variables to replace
 
 - `<QUEUE_REPOSITORY>`: your private queue repository, for example `OWNER/ai-nightshift-private`
-- `<LOCAL_TIMEZONE>`: your timezone, for example `Europe/Zurich`
+- `<LOCAL_TIMEZONE>`: your timezone, for example `UTC`
 
 ## Base instruction
 
